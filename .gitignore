@@ -46,3 +46,6 @@ temp/
 # Claude Crew
 .claude-crew/
 task-analysis/
+
+# MCP Configuration (contains tokens!)
+mcp_config.md
