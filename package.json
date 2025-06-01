@@ -15,7 +15,9 @@
     "build": "tsc && node -e \"require('fs').chmodSync('./dist/index.js', 0o755)\"",
     "build:win": "tsc",
     "start": "node dist/index.js",
+    "start:http": "node dist/http-server.js",
     "dev": "tsc && node dist/index.js",
+    "dev:http": "tsc && node dist/http-server.js",
     "watch": "tsc --watch",
     "lint": "tsc --noEmit",
     "test": "echo No tests specified && exit 0"
@@ -27,9 +29,15 @@
     "@octokit/rest": "^22.0.0",
     "universal-user-agent": "^7.0.3",
     "zod": "^3.25.46",
-    "zod-to-json-schema": "^3.24.5"
+    "zod-to-json-schema": "^3.24.5",
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "ws": "^8.14.2"
   },
   "devDependencies": {
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "@types/express": "^4.17.17",
+    "@types/cors": "^2.8.13",
+    "@types/ws": "^8.5.5"
   }
 }

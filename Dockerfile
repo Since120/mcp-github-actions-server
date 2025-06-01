@@ -16,6 +16,9 @@ COPY tsconfig.json ./
 # Build the application
 RUN npm run build
 
+# Install curl for health checks
+RUN apk add --no-cache curl
+
 # Remove dev dependencies and source files to reduce image size
 RUN npm prune --production && \
     rm -rf src/ tsconfig.json node_modules/.cache
@@ -35,7 +38,7 @@ EXPOSE 3000
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-    CMD node -e "console.log('MCP Server Health Check: OK')" || exit 1
+    CMD curl -f http://localhost:3000/health || exit 1
 
-# Start the MCP server
-CMD ["node", "dist/index.js"]
+# Start the HTTP server (for network access) or stdio server (for local MCP)
+CMD ["node", "dist/http-server.js"]
