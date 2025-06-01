@@ -6,8 +6,8 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies
-RUN npm ci --only=production
+# Install ALL dependencies (including dev dependencies for build)
+RUN npm ci
 
 # Copy source code
 COPY src/ ./src/
@@ -18,7 +18,7 @@ RUN npm run build
 
 # Remove dev dependencies and source files to reduce image size
 RUN npm prune --production && \
-    rm -rf src/ tsconfig.json
+    rm -rf src/ tsconfig.json node_modules/.cache
 
 # Create non-root user for security
 RUN addgroup -g 1001 -S mcp && \

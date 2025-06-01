@@ -2,7 +2,9 @@ version: '3.8'
 
 services:
   mcp-github-actions:
-    build: .
+    build: 
+      context: .
+      dockerfile: Dockerfile
     container_name: mcp-github-actions-server
     restart: unless-stopped
     environment:
