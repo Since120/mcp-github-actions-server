@@ -35,7 +35,7 @@
     "ws": "^8.14.2"
   },
   "devDependencies": {
-    "typescript": "^5.8.3",
+    "typescript": "^5.9.2",
     "@types/express": "^4.17.17",
     "@types/cors": "^2.8.19",
     "@types/ws": "^8.5.5"
