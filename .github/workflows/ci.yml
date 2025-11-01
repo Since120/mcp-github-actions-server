@@ -43,14 +43,14 @@ jobs:
           CI: true
 
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: build
           path: dist/
           retention-days: 7
 
       - name: Upload package-lock.json
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: package-lock
           path: package-lock.json
